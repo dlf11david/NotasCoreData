@@ -26,9 +26,8 @@ class ListaNotasController: UITableViewController {
             return
         }
         let miContexto = miDelegate.persistentContainer.viewContext
-        let notas = try! miContexto.fetch(request)
-        for nota in notas {
-            listaNotas.append(nota)
+        listaNotas = try! miContexto.fetch(request)
+        for nota in listaNotas {
             print(nota.texto!)
         }
         self.tableView.reloadData()
