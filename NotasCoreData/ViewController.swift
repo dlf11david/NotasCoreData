@@ -35,6 +35,7 @@ class ViewController: UIViewController {
         labelFecha.text = ""
         labelMensaje.text = ""
         txtNota.text = ""
+        
     }
     
     
