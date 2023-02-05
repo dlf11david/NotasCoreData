@@ -19,9 +19,9 @@ class ListaNotasCDController: UITableViewController, NSFetchedResultsControllerD
         let miContexto = miDelegate.persistentContainer.viewContext
 
         let consulta = NSFetchRequest<Nota>(entityName: "Nota")
-        let sortDescriptors = [NSSortDescriptor(key:"fecha", ascending:false)]
+        let sortDescriptors = [NSSortDescriptor(key:"texto", ascending:false)]
         consulta.sortDescriptors = sortDescriptors
-        self.frc = NSFetchedResultsController<Nota>(fetchRequest: consulta, managedObjectContext: miContexto, sectionNameKeyPath: nil, cacheName: "miCache")
+        self.frc = NSFetchedResultsController<Nota>(fetchRequest: consulta, managedObjectContext: miContexto, sectionNameKeyPath: "inicial", cacheName: "miCache")
 
         self.frc.delegate = self
         try! self.frc.performFetch()
@@ -93,6 +93,13 @@ class ListaNotasCDController: UITableViewController, NSFetchedResultsControllerD
                 try! miContexto.save()
             }
     }
+    
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+            return self.frc.sections?[section].name
+    }
+
+
 
 
 }
