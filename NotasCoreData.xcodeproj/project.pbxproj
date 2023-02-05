@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A915261729901BED0032DE0E /* ListaNotasCDController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A915261629901BED0032DE0E /* ListaNotasCDController.swift */; };
 		A92EF641294CD1F90029EC25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92EF640294CD1F90029EC25 /* AppDelegate.swift */; };
 		A92EF643294CD1F90029EC25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92EF642294CD1F90029EC25 /* SceneDelegate.swift */; };
 		A92EF645294CD1F90029EC25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92EF644294CD1F90029EC25 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A915261629901BED0032DE0E /* ListaNotasCDController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaNotasCDController.swift; sourceTree = "<group>"; };
 		A92EF63D294CD1F90029EC25 /* NotasCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotasCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92EF640294CD1F90029EC25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A92EF642294CD1F90029EC25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				A92EF64E294CD1FA0029EC25 /* LaunchScreen.storyboard */,
 				A92EF651294CD1FA0029EC25 /* Info.plist */,
 				A92EF649294CD1F90029EC25 /* NotasCoreData.xcdatamodeld */,
+				A915261629901BED0032DE0E /* ListaNotasCDController.swift */,
 			);
 			path = NotasCoreData;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				A92EF641294CD1F90029EC25 /* AppDelegate.swift in Sources */,
 				A9916E14299016F5006444BC /* Throttler.swift in Sources */,
 				A92EF658294CE4D80029EC25 /* ListaNotasController.swift in Sources */,
+				A915261729901BED0032DE0E /* ListaNotasCDController.swift in Sources */,
 				A92EF64B294CD1F90029EC25 /* NotasCoreData.xcdatamodeld in Sources */,
 				A92EF643294CD1F90029EC25 /* SceneDelegate.swift in Sources */,
 				A9916E12298FCDB0006444BC /* GestorPicker.swift in Sources */,
