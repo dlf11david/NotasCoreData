@@ -8,13 +8,25 @@
 import UIKit
 import CoreData
 
-class ListaNotasController: UITableViewController {
+class ListaNotasController: UITableViewController, UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let texto = searchController.searchBar.text!
+        print("Buscando \(texto)")
+    }
+    
+    let searchController = UISearchController(searchResultsController: nil)
     
     var listaNotas : [Nota]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.listaNotas = []
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Buscar texto"
+        searchController.searchBar.sizeToFit()
+        self.tableView.tableHeaderView = searchController.searchBar
         print("hola soy ListaNotasController")
 
     }
