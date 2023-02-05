@@ -84,5 +84,15 @@ class ListaNotasCDController: UITableViewController, NSFetchedResultsControllerD
         }
     }
 
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            if editingStyle == .delete {
+                let miDelegate = UIApplication.shared.delegate as! AppDelegate
+                let miContexto = miDelegate.persistentContainer.viewContext
+                let objectToDelete = self.frc.object(at: indexPath)
+                miContexto.delete(objectToDelete)
+                try! miContexto.save()
+            }
+    }
+
 
 }
