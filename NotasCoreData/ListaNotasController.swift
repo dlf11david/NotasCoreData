@@ -12,8 +12,36 @@ class ListaNotasController: UITableViewController, UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         let texto = searchController.searchBar.text!
-        print("Buscando \(texto)")
+        let request: NSFetchRequest<Nota> = Nota.fetchRequest()
+        let predicate = NSPredicate(format: "texto contains[c] %@", texto)
+        request.predicate = predicate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        do {
+            listaNotas = try context.fetch(request)
+        } catch {
+            print("Algo fue mal")
+        }
+        if listaNotas.isEmpty {
+            let request: NSFetchRequest<Nota> = Nota.fetchRequest()
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            do {
+                listaNotas = try context.fetch(request)
+            } catch {
+                print("Algo fue mal")
+            }
+        }
+        listaNotas.sort { (Nota1, Nota2) -> Bool in
+            guard let fecha1 = Nota1.fecha, let fecha2 = Nota2.fecha else {
+                return false
+            }
+            return fecha1 > fecha2
+        }
+        tableView.reloadData()
     }
+    
+    
     
     let searchController = UISearchController(searchResultsController: nil)
     
