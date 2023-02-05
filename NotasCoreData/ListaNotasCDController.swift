@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ListaNotasCDController: UITableViewController {
+class ListaNotasCDController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     var frc : NSFetchedResultsController<Nota>!
 
@@ -23,9 +23,8 @@ class ListaNotasCDController: UITableViewController {
         consulta.sortDescriptors = sortDescriptors
         self.frc = NSFetchedResultsController<Nota>(fetchRequest: consulta, managedObjectContext: miContexto, sectionNameKeyPath: nil, cacheName: "miCache")
 
-        //ejecutamos el fetch
+        self.frc.delegate = self
         try! self.frc.performFetch()
-        //Esto vendría también dentro del viewDidLoad, a continuación de lo anterior
         if let resultados = frc.fetchedObjects {
             print("Hay \(resultados.count) notas")
             for nota in resultados {
@@ -51,6 +50,38 @@ class ListaNotasCDController: UITableViewController {
         let nota = self.frc.object(at: indexPath)
         cell.textLabel?.text = nota.texto!
         return cell
+    }
+
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.beginUpdates()
+    }
+
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.endUpdates()
+    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            self.tableView.insertRows(at: [newIndexPath!], with:.automatic )
+        case .update:
+            self.tableView.reloadRows(at: [indexPath!], with: .automatic)
+        case .delete:
+            self.tableView.deleteRows(at: [indexPath!], with: .automatic)
+        case .move:
+            self.tableView.deleteRows(at: [indexPath!], with: .automatic)
+            self.tableView.insertRows(at: [newIndexPath!], with:.automatic )
+        }
+    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch(type) {
+        case .insert:
+            self.tableView.insertSections(IndexSet(integer:sectionIndex), with: .automatic)
+        case .delete:
+            self.tableView.deleteSections(IndexSet(integer:sectionIndex), with: .automatic)
+        default: break
+        }
     }
 
 
