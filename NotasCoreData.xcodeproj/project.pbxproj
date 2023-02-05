@@ -73,11 +73,11 @@
 				A9916E13299016F5006444BC /* Throttler.swift */,
 				A9916E11298FCDB0006444BC /* GestorPicker.swift */,
 				A92EF657294CE4D80029EC25 /* ListaNotasController.swift */,
+				A915261629901BED0032DE0E /* ListaNotasCDController.swift */,
 				A92EF64C294CD1FA0029EC25 /* Assets.xcassets */,
 				A92EF64E294CD1FA0029EC25 /* LaunchScreen.storyboard */,
 				A92EF651294CD1FA0029EC25 /* Info.plist */,
 				A92EF649294CD1F90029EC25 /* NotasCoreData.xcdatamodeld */,
-				A915261629901BED0032DE0E /* ListaNotasCDController.swift */,
 			);
 			path = NotasCoreData;
 			sourceTree = "<group>";
