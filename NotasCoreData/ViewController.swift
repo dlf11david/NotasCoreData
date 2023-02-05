@@ -22,6 +22,8 @@ class ViewController: UIViewController {
         let nuevaNota = Nota(context:miContexto)
         nuevaNota.fecha = Date()
         nuevaNota.texto = txtNota.text
+        let numLibreta = self.pickLibreta.selectedRow(inComponent: 0)
+        nuevaNota.libreta = miGestorPicker.libretas[numLibreta]
         do {
            try miContexto.save()
         } catch {

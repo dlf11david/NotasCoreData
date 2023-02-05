@@ -54,6 +54,7 @@ class ListaNotasController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MiCelda", for: indexPath)
         cell.textLabel?.text = self.listaNotas[indexPath.row].texto
+        cell.detailTextLabel?.text = self.listaNotas[indexPath.row].libreta?.nombre
         return cell
     }
 
