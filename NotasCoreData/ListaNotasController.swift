@@ -11,34 +11,37 @@ import CoreData
 class ListaNotasController: UITableViewController, UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
-        let texto = searchController.searchBar.text!
-        let request: NSFetchRequest<Nota> = Nota.fetchRequest()
-        let predicate = NSPredicate(format: "texto contains[c] %@", texto)
-        request.predicate = predicate
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        do {
-            listaNotas = try context.fetch(request)
-        } catch {
-            print("Algo fue mal")
-        }
-        if listaNotas.isEmpty {
+        
+        throttler.throttle {
+            let texto = searchController.searchBar.text!
             let request: NSFetchRequest<Nota> = Nota.fetchRequest()
+            let predicate = NSPredicate(format: "texto contains[c] %@", texto)
+            request.predicate = predicate
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let context = appDelegate.persistentContainer.viewContext
             do {
-                listaNotas = try context.fetch(request)
+                self.listaNotas = try context.fetch(request)
             } catch {
                 print("Algo fue mal")
             }
-        }
-        listaNotas.sort { (Nota1, Nota2) -> Bool in
-            guard let fecha1 = Nota1.fecha, let fecha2 = Nota2.fecha else {
-                return false
+            if self.listaNotas.isEmpty {
+                let request: NSFetchRequest<Nota> = Nota.fetchRequest()
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let context = appDelegate.persistentContainer.viewContext
+                do {
+                    self.listaNotas = try context.fetch(request)
+                } catch {
+                    print("Algo fue mal")
+                }
             }
-            return fecha1 > fecha2
-        }
-        tableView.reloadData()
+            self.listaNotas.sort { (Nota1, Nota2) -> Bool in
+                guard let fecha1 = Nota1.fecha, let fecha2 = Nota2.fecha else {
+                    return false
+                }
+                return fecha1 > fecha2
+            }
+            self.tableView.reloadData()
+            }
     }
     
     
@@ -46,6 +49,8 @@ class ListaNotasController: UITableViewController, UISearchResultsUpdating {
     let searchController = UISearchController(searchResultsController: nil)
     
     var listaNotas : [Nota]!
+    
+    let throttler = Throttler(minimumDelay: 0.5)
 
     override func viewDidLoad() {
         super.viewDidLoad()
