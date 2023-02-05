@@ -17,21 +17,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JUt-eI-he3">
-                                <rect key="frame" x="77" y="251" width="240" height="128"/>
+                                <rect key="frame" x="77" y="172" width="240" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="nB2-Hn-ca1"/>
+                                </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Fecha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luy-9S-mAa">
-                                <rect key="frame" x="174" y="222" width="47" height="21"/>
+                                <rect key="frame" x="174" y="119" width="47" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0l-Ka-sUZ">
-                                <rect key="frame" x="72" y="426" width="86" height="35"/>
+                                <rect key="frame" x="72" y="354" width="86" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Guardar"/>
                                 <connections>
@@ -39,7 +42,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7DY-C3-q1c">
-                                <rect key="frame" x="247" y="426" width="66" height="35"/>
+                                <rect key="frame" x="247" y="354" width="66" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Crear"/>
                                 <connections>
@@ -47,43 +50,53 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mensaje" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YuP-WY-6Me">
-                                <rect key="frame" x="165" y="533" width="64" height="21"/>
+                                <rect key="frame" x="165" y="424" width="64" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cyh-ph-7vw">
-                                <rect key="frame" x="134" y="638" width="124" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cyh-ph-7vw">
+                                <rect key="frame" x="134" y="673" width="124" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Nueva libreta"/>
                                 <connections>
                                     <action selector="btnNuevaLibreta:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0JY-ef-OA8"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eH1-Tw-iRB">
+                                <rect key="frame" x="0.0" y="505" width="390" height="136"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="136" id="Akb-IC-kpL"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="7DY-C3-q1c" firstAttribute="leading" secondItem="J0l-Ka-sUZ" secondAttribute="trailing" constant="89" id="2C6-mS-t9m"/>
-                            <constraint firstItem="luy-9S-mAa" firstAttribute="centerX" secondItem="JUt-eI-he3" secondAttribute="centerX" id="DaI-ZB-IWz"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YuP-WY-6Me" secondAttribute="bottom" constant="207" id="M4o-2z-cB8"/>
-                            <constraint firstItem="J0l-Ka-sUZ" firstAttribute="top" secondItem="JUt-eI-he3" secondAttribute="bottom" constant="47" id="SVq-ju-IDU"/>
-                            <constraint firstItem="luy-9S-mAa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="174" id="XcR-YW-ntX"/>
-                            <constraint firstItem="luy-9S-mAa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="175" id="aCq-QT-tWj"/>
-                            <constraint firstItem="JUt-eI-he3" firstAttribute="top" secondItem="luy-9S-mAa" secondAttribute="bottom" constant="8" id="bQr-dy-0at"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="J0l-Ka-sUZ" secondAttribute="bottom" constant="300" id="dm2-V4-Y9q"/>
-                            <constraint firstItem="J0l-Ka-sUZ" firstAttribute="baseline" secondItem="7DY-C3-q1c" secondAttribute="baseline" id="qLZ-FP-pdt"/>
-                            <constraint firstItem="J0l-Ka-sUZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="72" id="tR3-Iv-iIt"/>
-                            <constraint firstItem="JUt-eI-he3" firstAttribute="centerX" secondItem="YuP-WY-6Me" secondAttribute="centerX" id="weH-hR-oAK"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JUt-eI-he3" secondAttribute="trailing" constant="73" id="xQh-qe-u2W"/>
-                            <constraint firstItem="JUt-eI-he3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="77" id="xdv-Xn-m0g"/>
+                            <constraint firstItem="JUt-eI-he3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="77" id="111-mg-TF0"/>
+                            <constraint firstItem="luy-9S-mAa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="72" id="APd-kz-KOl"/>
+                            <constraint firstItem="JUt-eI-he3" firstAttribute="centerX" secondItem="YuP-WY-6Me" secondAttribute="centerX" id="IAb-Wl-nyG"/>
+                            <constraint firstItem="J0l-Ka-sUZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="72" id="IuP-1W-Miq"/>
+                            <constraint firstItem="J0l-Ka-sUZ" firstAttribute="top" secondItem="JUt-eI-he3" secondAttribute="bottom" constant="54" id="LBX-iY-NFi"/>
+                            <constraint firstItem="Cyh-ph-7vw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="134" id="OE2-4D-VnY"/>
+                            <constraint firstItem="Cyh-ph-7vw" firstAttribute="top" secondItem="eH1-Tw-iRB" secondAttribute="bottom" constant="32" id="Sep-Th-kFM"/>
+                            <constraint firstItem="luy-9S-mAa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="174" id="T5J-zX-oTs"/>
+                            <constraint firstItem="7DY-C3-q1c" firstAttribute="leading" secondItem="J0l-Ka-sUZ" secondAttribute="trailing" constant="89" id="aa0-ZL-ami"/>
+                            <constraint firstItem="eH1-Tw-iRB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dgj-xL-iOh"/>
+                            <constraint firstItem="J0l-Ka-sUZ" firstAttribute="baseline" secondItem="7DY-C3-q1c" secondAttribute="baseline" id="eRn-4Q-7eE"/>
+                            <constraint firstItem="eH1-Tw-iRB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nWT-Ty-c2h"/>
+                            <constraint firstItem="eH1-Tw-iRB" firstAttribute="top" secondItem="YuP-WY-6Me" secondAttribute="bottom" constant="60" id="nrD-E7-Ccv"/>
+                            <constraint firstItem="luy-9S-mAa" firstAttribute="centerX" secondItem="JUt-eI-he3" secondAttribute="centerX" id="rWi-wB-f7j"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Cyh-ph-7vw" secondAttribute="bottom" constant="53" id="y2c-u4-o8J"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JUt-eI-he3" secondAttribute="trailing" constant="73" id="yQr-qa-and"/>
+                            <constraint firstItem="JUt-eI-he3" firstAttribute="top" secondItem="luy-9S-mAa" secondAttribute="bottom" constant="32" id="ywn-ub-YuX"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Nueva" id="aL7-RA-R5t"/>
                     <connections>
                         <outlet property="labelFecha" destination="luy-9S-mAa" id="mUK-iJ-70p"/>
                         <outlet property="labelMensaje" destination="YuP-WY-6Me" id="M4a-fd-r5M"/>
+                        <outlet property="pickLibreta" destination="eH1-Tw-iRB" id="zPL-2F-FW8"/>
                         <outlet property="txtNota" destination="JUt-eI-he3" id="hvx-BH-lGp"/>
                     </connections>
                 </viewController>

@@ -38,9 +38,14 @@ class ViewController: UIViewController {
         
     }
     
+    @IBOutlet weak var pickLibreta: UIPickerView!
+    let miGestorPicker = GestorPicker()
+
+    
     @IBAction func btnNuevaLibreta(_ sender: UIButton) {
         nuevaLibreta()
     }
+    
     
     
     func nuevaLibreta() {
@@ -61,6 +66,10 @@ class ViewController: UIViewController {
             } catch {
                print("Error al guardar el contexto: \(error)")
             }
+            self.miGestorPicker.libretas.append(nuevaLibreta)
+            self.pickLibreta.reloadAllComponents()
+
+
         }
         let cancelar = UIAlertAction(title: "Cancelar", style: .cancel) {
             action in
@@ -74,7 +83,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.pickLibreta.delegate = self.miGestorPicker
+        self.pickLibreta.dataSource = self.miGestorPicker
+        self.miGestorPicker.cargarLista()
     }
 
 

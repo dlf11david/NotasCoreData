@@ -32,6 +32,15 @@ class ListaNotasController: UITableViewController {
         }
         self.tableView.reloadData()
         
+        //Provisional
+        let queryLibretas = NSFetchRequest<Libreta>(entityName:"Libreta")
+        let libretas = try! miContexto.fetch(queryLibretas)
+        for libreta in libretas {
+            print(libreta.nombre)
+        }
+        //Provisional
+        
+        
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
