@@ -11,7 +11,6 @@ import CoreData
 class ListaNotasController: UITableViewController, UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
-        
         throttler.throttle {
             let texto = searchController.searchBar.text!
             let request: NSFetchRequest<Nota> = Nota.fetchRequest()
