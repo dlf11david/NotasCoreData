@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 
+
 class ListaNotasController: UITableViewController, UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
