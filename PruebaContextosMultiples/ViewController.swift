@@ -99,22 +99,23 @@ class ViewController: UIViewController, UITableViewDataSource, NSFetchedResultsC
     
     
     @IBAction func botonExportarPulsado(_ sender: AnyObject) {
-        
-        let miDelegate = UIApplication.shared.delegate as! AppDelegate
-        let miContexto = miDelegate.persistentContainer.viewContext
-        
-        //TO-DO: esta operación hay que hacerla en un contexto en background
-        DataUtils().exportarNotas(contexto: miContexto)
-
-        let alert = UIAlertController(title: "",
-                                      message: "Se han exportado las notas",
-                                      preferredStyle: .alert)
-        let ok = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(ok)
-        self.present(alert, animated: true)
-
-        
-    }
+            
+            let miDelegate = UIApplication.shared.delegate as! AppDelegate
+            let miContexto = miDelegate.persistentContainer.viewContext
+            
+            DispatchQueue.global(qos: .background).async {
+                DataUtils().exportarNotas(contexto: miContexto)
+                
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "",
+                                                  message: "Se han exportado las notas",
+                                                  preferredStyle: .alert)
+                    let ok = UIAlertAction(title: "OK", style: .default)
+                    alert.addAction(ok)
+                    self.present(alert, animated: true)
+                }
+            }
+        }
 
     @IBAction func botonBorrarTodasPulsado(_ sender: AnyObject) {
         let miDelegate = UIApplication.shared.delegate as! AppDelegate
