@@ -72,7 +72,7 @@ class ListaNotasController: UITableViewController, UISearchResultsUpdating {
         let miContexto = miDelegate.persistentContainer.viewContext
         listaNotas = try! miContexto.fetch(request)
         for nota in listaNotas {
-            print(nota.texto!)
+            print(nota.contenido!)
         }
         self.tableView.reloadData()
         
@@ -98,7 +98,7 @@ class ListaNotasController: UITableViewController, UISearchResultsUpdating {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MiCelda", for: indexPath)
-        cell.textLabel?.text = self.listaNotas[indexPath.row].texto
+        cell.textLabel?.text = self.listaNotas[indexPath.row].contenido
         cell.detailTextLabel?.text = self.listaNotas[indexPath.row].libreta?.nombre
         return cell
     }

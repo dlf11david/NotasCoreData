@@ -20,7 +20,7 @@ class ListaNotasCDController: UITableViewController, NSFetchedResultsControllerD
         let miContexto = miDelegate.persistentContainer.viewContext
 
         let consulta = NSFetchRequest<Nota>(entityName: "Nota")
-        let sortDescriptors = [NSSortDescriptor(key:"texto", ascending:false)]
+        let sortDescriptors = [NSSortDescriptor(key:"contenido", ascending:false)]
         consulta.sortDescriptors = sortDescriptors
         self.frc = NSFetchedResultsController<Nota>(fetchRequest: consulta, managedObjectContext: miContexto, sectionNameKeyPath: "inicial", cacheName: "miCache")
 
@@ -29,7 +29,7 @@ class ListaNotasCDController: UITableViewController, NSFetchedResultsControllerD
         if let resultados = frc.fetchedObjects {
             print("Hay \(resultados.count) notas")
             for nota in resultados {
-                print (nota.texto!)
+                print (nota.contenido!)
             }
         }
 
@@ -49,7 +49,7 @@ class ListaNotasCDController: UITableViewController, NSFetchedResultsControllerD
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "otraCelda", for: indexPath)
         let nota = self.frc.object(at: indexPath)
-        cell.textLabel?.text = nota.texto!
+        cell.textLabel?.text = nota.contenido!
         return cell
     }
 

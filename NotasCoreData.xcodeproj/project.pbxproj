@@ -36,6 +36,7 @@
 		A92EF657294CE4D80029EC25 /* ListaNotasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaNotasController.swift; sourceTree = "<group>"; };
 		A9916E11298FCDB0006444BC /* GestorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestorPicker.swift; sourceTree = "<group>"; };
 		A9916E13299016F5006444BC /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
+		A9C105FF2991B597004DAA55 /* v1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = v1.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,9 +386,10 @@
 		A92EF649294CD1F90029EC25 /* NotasCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				A9C105FF2991B597004DAA55 /* v1.xcdatamodel */,
 				A92EF64A294CD1F90029EC25 /* NotasCoreData.xcdatamodel */,
 			);
-			currentVersion = A92EF64A294CD1F90029EC25 /* NotasCoreData.xcdatamodel */;
+			currentVersion = A9C105FF2991B597004DAA55 /* v1.xcdatamodel */;
 			path = NotasCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
