@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 
+
 class ListaNotasCDController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     var frc : NSFetchedResultsController<Nota>!
